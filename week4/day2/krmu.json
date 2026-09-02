@@ -1,0 +1,30 @@
+{
+    "student":[
+        {
+            "id":1,
+            "name":"aarav"
+        },
+        {
+            "id":2,
+            "name":"diksha"
+        },
+         {
+            "id":3,
+            "name":"ankita"
+        }
+    ],
+    "trainer":[
+         {
+            "id":1,
+            "name":"diksha maam"
+        },
+         {
+            "id":2,
+            "name":"sp sir"
+        },
+         {
+            "id":2,
+            "name":"rajesh"
+        }
+    ]
+}
