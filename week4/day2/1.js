@@ -2,10 +2,15 @@ const express = require("express");
 const fs = require("fs");
 
 const app = express();
+app.use(express.json()); // Middleware to parse JSON request bodies
 
-// Middlewere -> access req body
-app.use(express.json());
-
+// json data string me hota h or : 
+// ************************Middleware -> access req body**********************************************
+// middleware is a function that sits between req-res cycle.
+ //it can access both req res object
+ //middle--bich me req res cycle
+ //were-- set of instruction to perform certain task. ex(s/w , h/w) 
+//**************************************************************** */
 // APi/ Routes
 app.get("/", (req, res) => {
   res.send({ msg: "Home Page" });
