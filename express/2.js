@@ -26,7 +26,7 @@ app.get("/stread",(req,res)=>{
     const data = fs.readFileSync("./krmu.json","utf-8");
     //console.log(data, typeof data);
 
-    const jsdata = JSON.parse(data);
+    const jsdata = JSON.parse(data); //--> to contvert string to object
     console.log(jsdata, typeof jsdata);
 
     res.send(jsdata.trainer);
