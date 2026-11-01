@@ -13,13 +13,6 @@ app.get("/home", (req, res) => {
   res.send("Welcome to the Note Application");
 });
 
-// auth middlewere
-app.use(auth);
-
-//private route
-app.get("/dashboard",(req,res)=>{
-  res.send({msg:"Welcome to Note Application"});
-})
 app.listen(8080, async () => {
   try {
     await connection;
@@ -27,5 +20,5 @@ app.listen(8080, async () => {
   } catch (err) {
     console.log("DB connection failed:", err.message);
   }
-  console.log("Server started");
+  console.log("Server started on http://localhost:8080");
 });

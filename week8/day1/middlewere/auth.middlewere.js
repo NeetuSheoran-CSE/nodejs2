@@ -1,15 +1,15 @@
 const jwt = require("jsonwebtoken");
-const auth = (req,res,next)=>{
+const auth = (req, res, next) => {
+  // Logic
 
-    //logic
-    try{
-        const token = req.headers.authorization;
-        console.log(token);
-        const decoded = jwt.verify(token,"coding");
-        next();
-    }catch(err){
-        res.send({msg:"login first"})
-    }
+  try {
+    const token = req.headers.authorization;
+    console.log(token);
+    const decoded = jwt.verify(token, "coding");
+    next();
+  } catch (error) {
+    res.send({ msg: "login First" });
+  }
 };
 
-module.exports = {auth};
+module.exports = { auth };
