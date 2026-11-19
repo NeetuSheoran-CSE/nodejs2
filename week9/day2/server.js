@@ -8,16 +8,34 @@ const httpserver = http.createServer(app);
 
 const io = new Server(httpserver);
 
+let count = 0;
+
 io.on('connection',(socket)=>{
-    console.log("user connected");
+    count++;
+    console.log("Active User:", count); //terminal/backend
+    
+    socket.emit("active", count); //frontend/client
+
+    console.log("Connected Established");
 
     socket.emit("chat","hello from server side");
+
+    //to broadcast a message
+    socket.broadcast.emit("join","New User Joined");
 
     socket.on("msg",(cb)=>{
         console.log(cb);
     });
+
+    //handling discount event
+    socket.on("discount",()=>{
+        count--;
+        console.log("Active User: ",count); //terminal/backend
+    });
+    //for making announcement
+    io.emit("announce","Only 5hr class left");
 });
 
-app.listen (8080,()=>{
+httpserver.listen (8080,()=>{
     console.log("server started")
 });

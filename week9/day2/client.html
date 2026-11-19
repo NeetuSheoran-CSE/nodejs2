@@ -14,13 +14,25 @@
 </html>
 
 <script>
-    const socket = io("http://localhost:8080/",{
+    const socket = io("ws://localhost:8080/",{
         "transports":["websocket"]
     })
 
     socket.emit("msg","hello from client side");
 
     socket.on("chat",(cb)=>{
+console.log(cb);
+});
+
+ socket.on("join",(cb)=>{
+console.log(cb);
+});
+
+//  socket.on("active",(cb)=>{
+// console.log("Active User: ",cb);
+// });
+
+ socket.on("announce",(cb)=>{
 console.log(cb);
 });
 
